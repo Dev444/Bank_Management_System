@@ -225,7 +225,6 @@ public:
 
     void showTopAccounts(int k) const {
         if (accounts.empty()) { cout << "No accounts available.\n"; return; }
-        // Correct comparator: max-heap based on balance
         auto cmp = [](Account* a, Account* b) { return a->getBalance() < b->getBalance(); };
         priority_queue<Account*, vector<Account*>, decltype(cmp)> pq(cmp);
         for (auto const& acc : accounts) pq.push(acc.get());
